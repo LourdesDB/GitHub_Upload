@@ -20,7 +20,7 @@ loan_costs = [500, 600, 200, 1000, 450]
 # YOUR CODE HERE!
 
 number_of_loans = len(loan_costs)
-print(number_of_loans)
+print(f"There are {number_of_loans} loans on the list.")
 
 # What is the total of all loans?
 # @TODO: Use the `sum` function to calculate the total of all loans in the list.
@@ -28,7 +28,7 @@ print(number_of_loans)
 # YOUR CODE HERE!
 
 all_loans = sum(loan_costs)
-print(all_loans)
+print(f"The total amount of all loans is ${all_loans}.")
 
 # What is the average loan amount from the list?
 # @TODO: Using the sum of all loans and the total number of loans, calculate the average loan price.
@@ -36,7 +36,7 @@ print(all_loans)
 # YOUR CODE HERE!
 
 avge_loan = all_loans/number_of_loans
-print(avge_loan)
+print(f"The average loan amount is ${avge_loan}.")
 
 """Part 2: Analyze Loan Data.
 
@@ -88,7 +88,7 @@ print(remaining_months)
 
 annual_discount_rate = 0.2
 present_value = future_value / (1 + annual_discount_rate/12) ** remaining_months
-print(present_value)
+print(f"The present value of the loan at a {round(100*annual_discount_rate,0)}% annual discount rate, is ${round(present_value,2)}.")
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
 # @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
@@ -97,6 +97,7 @@ print(present_value)
 # YOUR CODE HERE!
 
 loan_price = loan.get("loan_price")
+print(f"The loan's cost is ${loan_price}.")
 
 if present_value >= loan_price:
     print("The loan is worth at least the cost to buy it.")
@@ -129,9 +130,8 @@ new_loan = {
 # YOUR CODE HERE!
 
 def p_val (fut_val, rem_months, ann_disc_rate):
-    pres_val = fut_val / (1 + ann_disc_rate/12) ** rem_months
-    return pres_val
-
+    present_value = fut_val / (1 + ann_disc_rate/12) ** rem_months
+    return present_value
 
 
 # @TODO: Use the function to calculate the present value of the new loan given below.
@@ -140,7 +140,7 @@ def p_val (fut_val, rem_months, ann_disc_rate):
 
 present_value = p_val(new_loan.get("future_value"),new_loan.get("remaining_months"),0.2)
 
-print(f"The present value of the loan is: {present_value}")
+print(f"The present value of the new loan is: ${round(present_value,2)}")
 
 
 """Part 4: Conditionally filter lists of loans.
